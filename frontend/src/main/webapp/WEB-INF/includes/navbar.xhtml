@@ -1,0 +1,49 @@
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <nav>
+        <h:form id="nav-form">
+            <p:menubar class="yellow darken-1">
+                <p:menuitem action="#{routerBean.redirect('index')}" styleClass="no-hover">
+                    <h:graphicImage value="https://thumbs.dreamstime.com/b/mülleimer-kann-symbolvektor-abfallbild-korbsymbol-mülllogo-für-websites-oder-mobile-anwendungen-verwendet-werden-228116506.jpg" height="55px"/>
+                </p:menuitem>
+                <p:submenu label="Datei hochladen" icon="pi pi-fw pi-file">
+                    <p:submenu label="Neu" icon="pi pi-fw pi-plus">
+                        <p:menuitem value="Foto" icon="pi pi-fw pi-images"/>
+                        <p:menuitem value="Video" icon="pi pi-fw pi-video"/>
+                    </p:submenu>
+                    <p:menuitem value="Löschen" icon="pi pi-fw pi-trash"/>
+                    <p:divider />
+                    <p:menuitem value="Exportieren" icon="pi pi-fw pi-external-link"/>
+                </p:submenu>
+
+                <p:submenu label="Erstellen" icon="pi pi-fw pi-pencil">
+                    <p:menuitem value="Müll melden" action="#{routerBean.redirect('muell')}" icon="pi pi-fw pi-calendar-plus"/>
+                    <p:menuitem value="Müll bearbeiten" icon="pi pi-fw pi-pencil"/>
+                    <p:menuitem value="Müll entfernen" icon="pi pi-fw pi-calendar-minus"/>
+                </p:submenu>
+
+                <p:submenu label="Hilfe" icon="pi pi-fw pi-exclamation-triangle">
+                    <p:submenu label="Kontakt" icon="pi pi-fw pi-user">
+                        <p:menuitem value="Ansprechpartner" icon="pi pi-fw pi-id-card"/>
+                        <p:menuitem value="Hotline" icon="pi pi-fw pi-phone"/>
+                    </p:submenu>
+                    <p:menuitem value="Impressum" action="#{routerBean.redirect('impressum')}" icon="pi pi-fw pi-info"/>
+                </p:submenu>
+
+                <p:divider layout="vertical"/>
+
+                <p:menuitem value="Beenden" icon="pi pi-fw pi-power-off"/>
+            </p:menubar>
+
+        </h:form>
+
+    </nav>
+
+
+</ui:composition>

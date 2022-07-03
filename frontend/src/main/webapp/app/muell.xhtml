@@ -1,0 +1,101 @@
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsp/jstl/core" xmlns:p="http://primefaces.org/ui"
+                template="../WEB-INF/templates/materialtemplate.xhtml">
+    <ui:define name="title">Home Improvement</ui:define>
+    <ui:define name="top">
+        <!--  navigation bar  -->
+        <ui:include src="../WEB-INF/includes/navbar.xhtml" />
+    </ui:define>
+
+    <ui:define name="content">
+        <div style="height: 90%">
+            <h:form>
+                <p:growl id="growl" showDetail="true" />
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d30107.916380651684!2d8.711639122151462!3d48.895649584641404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sde!2sde!4v1652867524496!5m2!1sde!2sde"
+                    width="700" height="550" style="border:0;" allowfullscreen=""
+                    referrerpolicy="no-referrer-when-downgrade"> </iframe>
+            </h:form>
+        </div>
+        <h:form id="muellForm">
+            <div class="pt-2 flex align-items-center justify-content-center">
+                <div class="ui-inputgroup">
+                    <div class="ui-inputgroup-addon"><i class="pi pi-key"></i></div>
+                    <p:inputText id="strasse" required="true" value="#{muellErstellenBean.strasse}" />
+                </div>
+            </div>
+            <div class="pt-2 flex align-items-center justify-content-center">
+                <div class="ui-inputgroup">
+                    <div class="ui-inputgroup-addon"><i class="pi pi-key"></i></div>
+                    <p:inputText id="hausnummer" required="true" value="#{muellErstellenBean.hausnummer}" />
+                </div>
+            </div>
+            <div class="pt-2 flex align-items-center justify-content-center">
+                <div class="ui-inputgroup">
+                    <div class="ui-inputgroup-addon"><i class="pi pi-key"></i></div>
+                    <p:inputText id="plz" required="true" value="#{muellErstellenBean.plz}" />
+                </div>
+            </div>
+            <div class="pt-2 flex align-items-center justify-content-center">
+                <div class="ui-inputgroup">
+                    <div class="ui-inputgroup-addon"><i class="pi pi-key"></i></div>
+                    <p:inputText id="stadt" required="true" value="#{muellErstellenBean.stadt}" />
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label>Straße</label>
+                <input type="text" id="strasse" class="form-control" name="Straße" value="#{muellErstellenBean.strasse}"
+                    placeholder="Placeholder Textfeld" />
+            </div>
+            <div class="form-group">
+                <label>Hausnummer</label>
+                <input type="text" id="hausnummer" class="form-control" name="Hausnummer"
+                    value="#{muellErstellenBean.hausnummer}" placeholder="Placeholder Textfeld" />
+            </div>
+            <div class="form-group">
+                <label>PLZ</label>
+                <input type="text" id="plz" class="form-control" name="Postleizahl" value="#{muellErstellenBean.plz}"
+                    placeholder="Placeholder Textfeld" />
+            </div>
+            <div class="form-group">
+                <label>Stadt</label>
+                <input type="text" id="stadt" class="form-control" name="Stadt" value="#{muellErstellenBean.stadt}"
+                    placeholder="Placeholder Textfeld" />
+            </div> -->
+            <div class="form-group">
+                <label>Verschmutzungsgrad</label>
+                <select id="verschmutzungsgrad" class="form-control" name="selectbox_name">
+                    <option value="leicht"> leicht value="#{muellErstellenBean.verschmutzungsgrad=1}"</option>
+                    <option value="mittel"> mittel value="#{muellErstellenBean.verschmutzungsgrad=2}</option>
+                    <option value="stark"> stark value="#{muellErstellenBean.verschmutzungsgrad=3}</option>
+                </select>
+            </div>
+            <!-- <div class="form-group">
+                <label>Müllart</label>
+                <select id="muellart" class="form-control" name="selectbox_name">
+                    <option value="plastik"> leicht value="#{muellErstellenBean.muellart=1}"</option>
+                    <option value="sonder"> mittel value="#{muellErstellenBean.muellart=2}</option>
+                    <option value="hausmüll"> stark value="#{muellErstellenBean.muellart=3}</option>
+                </select>
+            </div> -->
+            <div class="ui-inputgroup pt-2 flex align-items-center justify-content-center">
+                <button class="button-4 p-2">
+                    <h:commandLink id="muellErstellen"
+                                   style="color: #24292E; text-decoration: none; align-content: center;"
+                                   action="#{muellErstellenBean.muellErstellen()}"><i class="pi pi-send pr-3"></i>
+                        <h:outputText value="#{msg['Müll angelegt']}" />
+                    </h:commandLink>
+                </button>
+            </div>
+        </h:form>
+
+    </ui:define>
+
+
+    <ui:define name="Müllfeedback">
+        <!--  footer  -->
+        <div id="footer">
+            <ui:include src="../WEB-INF/includes/footer.xhtml" />
+        </div>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="../WEB-INF/templates/materialtemplate.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">    
+
+    <ui:define name="title"><h:outputText value="#{msg['page.home']}" /></ui:define>
+
+
+    <ui:define name="content">
+        <!--content-->
+        <div style="height: 90%">
+            <h:form>
+                <p:growl id="growl" showDetail="true" />
+                <p:commandButton actionListener="#{growlView.showInfo}" update="growl" value="Info" styleClass="p-mr-2" style="width: 10rem" />
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d30107.916380651684!2d8.711639122151462!3d48.895649584641404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sde!2sde!4v1652867524496!5m2!1sde!2sde" width="700" height="550" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade">
+
+                </iframe>
+            </h:form>
+        </div>
+    </ui:define>
+
+    <ui:define name="bottom">
+        <!--footer-->
+        <div id="footer">
+            <ui:include src="../WEB-INF/includes/footer.xhtml" />
+        </div>
+    </ui:define>
+
+</ui:composition>

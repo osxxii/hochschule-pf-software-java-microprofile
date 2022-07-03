@@ -1,0 +1,58 @@
+<ui:composition template="./WEB-INF/templates/login.xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsp/core" xmlns:p="http://primefaces.org/ui">
+
+    <!--Login Area can be accessed without being authenticated-->
+    <ui:define name="content">
+
+        <div class="flex align-items-center justify-content-center pt-2">
+            <p:growl sticky="false" life="10000">
+                <p:autoUpdate />
+            </p:growl>
+
+            <div class="surface-card shadow-2 border-round sm:w-12 md:w-6 lg:w-4">
+                <div class="ui-inputgroup py-2 flex align-items-center justify-content-center">
+                    <p:graphicImage library="images" name="logo.svg" style="max-width: 400px" />
+                </div>
+                <h:form id="loginForm">
+
+                    <div class="ui-inputgroup pt-2 flex align-items-center justify-content-center">
+                        <div class="ui-inputgroup-addon"><i class="pi pi-user"></i></div>
+                        <p:inputText id="username" required="true" requiredMessage="Username" value="#{loginBean.email}"
+                                     placeholder="#{msg['eMail']}" />
+                    </div>
+
+                    <div class="pt-2 flex align-items-center justify-content-center">
+                        <div class="ui-inputgroup">
+                            <div class="ui-inputgroup-addon"><i class="pi pi-key"></i></div>
+                            <p:password id="password" required="true" requiredMessage="Password"
+                                        value="#{loginBean.password}" placeholder="#{msg['password']}" />
+                        </div>
+                    </div>
+
+                    <div class="col-12 pt-2 flex align-items-center justify-content-center">
+                        <button class="button-4 p-2">
+                            <h:commandLink id="loginLink"
+                                           style="color: #24292E; text-decoration: none; align-content: center;"
+                                           action="#{loginBean.authenticate()}"><i class="pi pi-sign-in pr-3"></i>
+                                <h:outputText value="#{msg['login']}" />
+                            </h:commandLink>
+                        </button>
+                    </div>
+                </h:form>
+
+                <h:form id="registerForm">
+                    <div class="col-12 pt-4 flex align-items-center justify-content-center">
+                        <button class="button-4 p-2">
+                            <h:commandLink style="color: #24292E; text-decoration: none; align-content: center;"
+                                           action="registration"><i class="pi pi-user-plus pr-3"></i>
+                                <h:outputText value="#{msg['signUp']}" />
+                            </h:commandLink>
+                        </button>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

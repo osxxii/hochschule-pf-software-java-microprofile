@@ -1,0 +1,59 @@
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:metadata>
+        <f:event listener="#{adminBean.loadUserData()}" type="preRenderView" />
+    </f:metadata>
+
+    <!--Profile Page Content-->
+    <div class="row">
+        <div class="col s12">
+
+            <div class="card">
+                <h:form id="userForm">
+                    <p:dataTable id="availableProducts" var="user" value="#{adminBean.users}" rows="10"
+                                 paginator="true"
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                                 currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records">
+                        <p:column style="width:20px">
+                            <h:outputText id="dragIcon" styleClass="ui-icon pi pi-user-edit"/>
+                        </p:column>
+
+                        <p:column headerText="#{msg['eMail']}">
+                            <h:outputText value="#{user.email}"/>
+                        </p:column>
+
+                        <p:column headerText="#{msg['username']}">
+                            <h:outputText value="#{user.username}"/>
+                        </p:column>
+
+                        <p:column headerText="#{msg['level']}">
+                            <p:selectOneMenu id="option" value="#{user.level}">
+                                <f:selectItems value="#{adminBean.levelList}"/>
+                            </p:selectOneMenu>
+                        </p:column>
+
+                        <p:growl>
+                            <p:autoUpdate/>
+                        </p:growl>
+
+                        <p:column headerText="#{msg['role']}">
+                            <p:selectCheckboxMenu id="grouped" value="#{user.roles}" label="Countries" style="width: 15rem"
+                                                  multiple="true" filterMatchMode="startsWith" panelStyle="width: 15rem" scrollHeight="250">
+                                <f:selectItems value="#{adminBean.rolesList}" />
+                            </p:selectCheckboxMenu>
+                        </p:column>
+                    </p:dataTable>
+
+                    <div class="row s12 m6 center-align">
+                        <h:commandButton action="#{adminBean.updateUser}" value="#{msg['update']}" styleClass="btn btn-large yellow darken-1 grey-text text-darken-2"></h:commandButton>
+                    </div>
+                </h:form>
+            </div> 
+
+        </div>
+    </div>
+
+</ui:composition>

@@ -1,0 +1,109 @@
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <style type="text/css">
+        .ui-chips {
+            width: 100%;
+        }
+
+        .ui-chips-container {
+            width: 100%;
+        }
+    </style>
+
+    <f:metadata>
+        <f:event listener="#{profileBean.loadUserProfile()}" type="preRenderView" />
+    </f:metadata>
+
+    <!--Profile Page Content-->
+    <div class="row">
+        <div class="col s12">
+            <div id="profile-page-header" class="card">
+
+                <!--Profile Banner-->
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="https://cdn.wallpapersafari.com/58/17/fUFHvV.png" alt="user background"></img>
+                </div>
+
+                <!--Profile Image-->
+                <figure class="card-profile-image">
+                    <p:graphicImage alt="profile image" class="circle z-depth-2 responsive-img activator" style="height:85px" value="https://www.nailseatowncouncil.gov.uk/wp-content/uploads/blank-profile-picture-973460_1280.jpg"/>
+                </figure>
+
+                <!--Profile Content-->
+                <div class="card-content valign center-block">
+                    <div class="row" style="text-align: center; padding-top: 40px">
+
+                        <!--Information left side-->
+                        <div class="col s12 m3">
+
+                            <!--Profile Card-->
+                            <div class="card-panel">
+                                <span class="card-title">#{msg['aboutMe']}</span>
+                                <h:form>
+                                    <p:inputTextarea id="profileDesciption" class="no-shadow" value="#{profileBean.account.description}">
+                                        <p:ajax event="keyup" />
+                                        <p:ajax event="change" />
+                                    </p:inputTextarea>
+                                </h:form>
+                            </div>
+
+                            <!--Profile Level-->
+                            <div class="card-panel">
+                                <span class="card-title">#{msg['level']}</span>
+                                <h:form>
+                                    <p:outputLabel value="#{profileBean.account.level}">
+                                    </p:outputLabel>
+                                    <div class="progress">
+                                        <div class="determinate" style="width: 70%; background-color: #f1bf3a"></div>
+                                    </div>
+                                </h:form>
+                            </div>
+                        </div>
+
+                        <!--Profile right (main) Area-->
+                        <div class="col s12 m9">
+                            <div class="card-panel">
+                                <span class="card-title">#{msg['information']}</span>
+                                <div class="card-content">
+
+                                    <!--Information Form-->
+                                    <h:form id="profile-form">
+                                        <div class="row s12 m6 input-field">
+                                            <h:outputLabel for="username" value ="#{msg['eMail']}"/>
+                                            <h:inputText disabled="true" value="#{profileBean.account.email}"/>
+                                        </div>
+                                        <div class="row s12 m6 input-field">
+                                            <h:outputLabel for="username" value ="#{msg['username']}"/>
+                                            <h:inputText disabled="true" requiredMessage="Username" value="#{profileBean.account.username}"/>
+                                        </div>
+                                        <div class="row s12 m6 input-field">
+                                            <h:outputLabel for="age" value ="#{msg['age']}"/>
+                                            <h:inputText value="#{profileBean.account.age}"/>
+                                        </div>
+                                        <div class="row s12 m6 input-field">
+                                            <h:outputLabel for="job" value ="#{msg['job']}"/>
+                                            <h:inputText value="#{profileBean.account.job}"/>
+                                        </div>
+                                        <div class="row s12 m6 left-align chips-input">
+                                            <h:outputLabel for="chips" value="#{msg['topic']}" />
+                                            <p:chips id="chips" value="#{profileBean.account.topics}" />
+                                        </div> 
+                                        <div class="row s12 m6">
+                                            <h:commandButton action="#{profileBean.updateProfile}" value="#{msg['update']}" styleClass="btn btn-large yellow darken-1 grey-text text-darken-2"></h:commandButton>
+                                        </div>
+                                    </h:form>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ui:composition>

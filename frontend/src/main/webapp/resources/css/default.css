@@ -1,0 +1,93 @@
+section {
+    width: 200px;
+    border: 1px solid #2d2d2d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* label focus color */
+.input-field input:focus + label {
+    color: #f1bf3a !important;
+}
+
+/* label underline focus color */
+.input-field input:focus {
+    border-bottom: 1px solid #f1bf3a !important;
+    box-shadow: 0 1px 0 0 #f1bf3a !important;
+}
+
+.top_column1 {
+    padding: 10px 5px;
+}
+
+.top_column2 {
+    padding: 10px 5px;
+}
+
+#profile-page-header .card-profile-image {
+    width: 110px;
+    position: absolute;
+    top: 190px;
+    z-index: 1;
+    left: 50%;
+    cursor: pointer;
+    margin-left: -55px;
+}
+#profile-page-header .card-image {
+    height: 250px;
+}
+
+.no-border{
+    border-bottom: none;
+}
+
+.no-hover:hover{
+    background-color: unset !important;
+    text-decoration: unset !important;
+}
+
+.ui-chips-token{
+    background-color: #fdd835 !important;
+    border-color: #fdd835 !important;
+}
+
+.ui-chips-input-token:focus {
+    border-bottom: 1px solid #f1bf3a !important;
+    color: #f1bf3a !important;
+}
+
+.ui-chips-input-token {
+    border-bottom: none !important;
+}
+
+.ui-chips-token {
+    border-bottom: none !important;
+}
+
+.ui-chips-container{
+    border: 0px !important;
+    box-shadow: none !important;
+}
+
+.progress {
+    background-color:#cccccc !important;
+}
+
+.no-shadow{
+    box-shadow: none !important;
+    -webkit-box-shadow: 0px 0px 4px #f3f3f3 !important;
+}
+
+.ui-chips-container:focus{
+    border-bottom: 1px solid #fdd835 !important;
+}
+
+.chips-input input:focus + label{
+    color: #fdd835 !important;
+}
+
+.chips-input input:focus {
+    border-bottom: 1px solid #fdd835 !important;
+    box-shadow: 0 1px 0 0 #fdd835 !important;
+}
